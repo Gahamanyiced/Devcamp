@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db.js');
 const fileUpload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 const colors = require('colors');
 const path = require('path');
 const cloudinaryUpload = require('./utils/cloudinary');
@@ -27,6 +28,9 @@ const app = express();
 
 //Body Parser
 app.use(express.json());
+
+//Cookie parser
+app.use(cookieParser());
 
 // logger
 if (process.env.NODE_ENV === 'development') {
